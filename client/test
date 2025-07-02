@@ -1,0 +1,36 @@
+// const isAiMessage = message.sender?._id === "AI";
+// var UserMessage = message.sender?._id === userInfo._id;
+// console.log(UserMessage);
+// console.log("Final Message", message);
+// // var message = messages;
+// if (selectedChatType == "ai") {
+//   if (typeof messages.sender == "object") {
+//     const UserMessage = messages.sender?._id === userInfo.id || "";
+//     // messages = messages.content;
+//     messages = {
+//       messageType: "text",
+//       content: UserMessage,
+//       sender: userInfo,
+//       timestamp: new Date().toISOString(),
+//     };
+//   } else {
+//     messages = {
+//       messageType: "text",
+//       content: messages.content,
+//       sender: userInfo,
+//       timestamp: new Date().toISOString(),
+//     };
+//   }
+// }
+// // else {
+// //   var UserMessage = message.sender?._id === userInfo._id;
+// //   message = messages;
+// // }
+
+// const isAiMessage = messages.sender?.id !== userInfo.id;
+// console.log("messages from ai ", isAiMessage);
+// // alert(aiResponse);
+// let UserMessage = messages.sender?._id === userInfo.id;
+// console.log("userinfo => ", userInfo);
+// console.log(UserMessage);
+// console.log("Final Message", messages);
