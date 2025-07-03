@@ -136,13 +136,22 @@ export const addProfileImage = async (request, response, next) => {
     if (!request.file) {
       return response.status(400).send("File is required.");
     }
-    const date = Date.now();
-    let fileName = "uploads/profiles/" + date + request.file.originalname;
-    renameSync(request.file.path, fileName);
 
+    // Generate new filename
+    const date = Date.now();
+    const fileExt = request.file.originalname.split(".").pop();
+    const newFileName = `${date}-${request.file.originalname}`;
+    const uploadDir = request.file.destination;
+    const newPath = `${uploadDir}/${newFileName}`;
+
+    // Rename the uploaded file
+    renameSync(request.file.path, newPath);
+
+    // Save path (relative to project root) to DB
+    const dbPath = `uploads/profiles/${newFileName}`;
     const updatedUser = await User.findByIdAndUpdate(
       request.userId,
-      { image: fileName },
+      { image: dbPath },
       { new: true, runValidators: true }
     );
 
